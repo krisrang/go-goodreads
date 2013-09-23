@@ -8,9 +8,8 @@ import (
 )
 
 var (
-	id     string
-	key    string
-	secret string
+	id  string
+	key string
 
 	apiRoot = "http://www.goodreads.com/user/show/"
 )
@@ -37,10 +36,9 @@ func (u User) ReviewsLink() string {
 
 // PUBLIC
 
-func SetConfig(i, k, s string) {
+func SetConfig(i, k string) {
 	id = i
 	key = k
-	secret = s
 }
 
 func GetUser() *User {

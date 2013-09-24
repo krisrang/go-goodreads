@@ -8,9 +8,11 @@ import (
 )
 
 var (
-	id  string
-	key string
+	id    string
+	key   string
+	limit int
 
+	books   = Books{}
 	apiRoot = "http://www.goodreads.com/user/show/"
 )
 
@@ -34,11 +36,22 @@ func (u User) ReviewsLink() string {
 	return "http://www.goodreads.com/review/list/" + u.ID + "?sort=review&view=reviews"
 }
 
+type Books map[string]Book
+
+type Book struct {
+	Id       string `xml:"id"`
+	Title    string `xml:"title"`
+	Link     string `xml:"link"`
+	ImageURL string `xml:"image_url"`
+	NumPages string `xml:"num_pages"`
+}
+
 // PUBLIC
 
-func SetConfig(i, k string) {
+func SetConfig(i, k string, l int) {
 	id = i
 	key = k
+	limit = l
 }
 
 func GetUser() *User {

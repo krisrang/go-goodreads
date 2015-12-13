@@ -90,6 +90,7 @@ type Book struct {
 	NumPages string   `xml:"num_pages"`
 	Format   string   `xml:"format"`
 	Authors  []Author `xml:"authors>author"`
+	ISBN     string   `xml:"isbn"`
 }
 
 func (b Book) Author() Author {
